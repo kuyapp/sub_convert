@@ -3,7 +3,7 @@ import os
 import urllib.request
 from pathlib import Path
 
-def takeKey(elem):
+def takeSurge(elem):
     elem = elem.replace("香港", "0")
     elem = elem.replace("新加坡", "1")
     elem = elem.replace("日本", "2")
@@ -12,7 +12,14 @@ def takeKey(elem):
     elem = elem.replace("美国", "5")
     return elem
 
-def convert(mu, fname):
+def takeQX(elem):
+    if elem == "":
+      return "0"
+    elem = elem.split("tag=")[1]
+    return takeSurge(elem)
+    
+
+def convert(mu, fname, take):
     base_url = os.environ['SUB_URL']
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
     myurl = base_url + mu;
@@ -22,7 +29,7 @@ def convert(mu, fname):
     a = txt.decode('utf-8')
     a.replace("\r\n", "\n")
     lines = a.split("\n")
-    lines.sort(key=takeKey)
+    lines.sort(key=take)
     fname = "./dist/sdw_"+fname+".conf"
     f = open(fname, "x")
     for i in lines:
@@ -30,4 +37,5 @@ def convert(mu, fname):
       f.write("\r\n")
     
 Path("./dist").mkdir(parents=True, exist_ok=True)
-convert("6", "surge")
+convert("6", "surge", takeSurge)
+convert("5", "qx", takeQX)
