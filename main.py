@@ -92,7 +92,7 @@ def neohost():
    f = open(fname, "x")
    for i in lines:
      if "0.0.0.0" in i:
-       f.write(i.replace("0.0.0.0", "DOMAIN").strip())
+       f.write(i.replace("0.0.0.0 ", "DOMAIN,").strip())
        f.write("\r\n")
     
 Path("./dist").mkdir(parents=True, exist_ok=True)
