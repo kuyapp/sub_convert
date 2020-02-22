@@ -35,7 +35,7 @@ def convert(mu, fname, take):
     a.replace("\r\n", "\n")
     lines = a.split("\n")
     lines.sort(key=take)
-    fname = "./dist/sdw_"+fname+".conf"
+    fname = "./dist/sdwsdw_"+fname+".conf"
     f = open(fname, "x")
     for i in lines:
       f.write(i)
