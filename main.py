@@ -41,6 +41,35 @@ def convert(mu, fname, take):
       f.write(i)
       f.write("\r\n")
       
+def convertEx(fname):
+    base_url = os.environ['ME_URL']
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
+    myurl = base_url
+    print(myurl)
+    req = urllib.request.Request(url=myurl, headers=headers)
+    txt = urllib.request.urlopen(req).read()
+    a = txt.decode('utf-8')
+    a.replace("\r\n", "\n")
+    lines = a.split("\n")
+    new_list = []
+    end_list = []
+    for i in lines:
+      if i.startswith("【") and "回国" not in i:
+        if "|" in i:
+          end_list.append(i)
+        else:
+          new_list.append(i)
+    fname = "./dist/sdwsdw_"+fname+".conf"
+    f = open(fname, "x")
+    for i in end_list:
+      f.write(i)
+      f.write("\r\n")
+    new_list.reverse()
+    for i in new_list:
+      f.write(i)
+      f.write("\r\n")
+    
+      
 def clash(mu, fname):
   base_url = os.environ['SUB_URL']
   headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
@@ -100,3 +129,5 @@ convert("6", "surge", takeSurge)
 convert("5", "qx", takeQX)
 clash("4", "clash")
 neohost()
+convertEx("me_surge")
+
