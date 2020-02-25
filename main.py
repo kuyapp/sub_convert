@@ -132,5 +132,6 @@ neohost()
 convertEx("me_surge")
 
 convert("6&tls", "surge_tls", takeSurge)
+convert("5&tls", "qx_tls", takeQX)
 clash("4&tls", "clash_tls")
 
