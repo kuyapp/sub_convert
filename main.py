@@ -88,8 +88,11 @@ def clash(mu, fname):
       before = i.split("[")[0]
       f.write(before)
       f.write("[")
-      mid = i.split("[")[1].split("]")[0]
-      after = i.split("]")[1]
+      print(i)
+      mid = "\"" + i.split("[\"")[1].split("\"]")[0] + "\""
+      print(mid)
+      after = i.split("\"]")[1]
+      print(after)
       m = mid.split(",")
       m.sort(key=takeSurge)
       init = False
@@ -125,13 +128,13 @@ def neohost():
        f.write("\r\n")
     
 Path("./dist").mkdir(parents=True, exist_ok=True)
-convert("6", "surge", takeSurge)
-convert("5", "qx", takeQX)
+#convert("6", "surge", takeSurge)
+#convert("5", "qx", takeQX)
 clash("4", "clash")
-neohost()
-convertEx("me_surge")
+#neohost()
+#convertEx("me_surge")
 
-convert("6&tls", "surge_tls", takeSurge)
-convert("5&tls", "qx_tls", takeQX)
-clash("4&tls", "clash_tls")
+#convert("6&tls", "surge_tls", takeSurge)
+#convert("5&tls", "qx_tls", takeQX)
+#clash("4&tls", "clash_tls")
 
