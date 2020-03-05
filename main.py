@@ -8,12 +8,12 @@ def takeSurge(elem):
     if "Auto" in elem:
       #print("k")
       return "    "
-    elem = elem.replace("香港", "0")
-    elem = elem.replace("新加坡", "1")
-    elem = elem.replace("日本", "2")
-    elem = elem.replace("台湾", "3")
-    elem = elem.replace("韩国", "4")
-    elem = elem.replace("美国", "5")
+    elem = elem.replace("香港", "5")
+    elem = elem.replace("新加坡", "4")
+    elem = elem.replace("日本", "3")
+    elem = elem.replace("台湾", "2")
+    elem = elem.replace("韩国", "1")
+    elem = elem.replace("美国", "0")
     #print(elem)
     return elem
 
@@ -34,7 +34,7 @@ def convert(mu, fname, take):
     a = txt.decode('utf-8')
     a.replace("\r\n", "\n")
     lines = a.split("\n")
-    lines.sort(key=take)
+    lines.sort(key=take, reverse=False)
     fname = "./dist/sdwsdw_"+fname+".conf"
     f = open(fname, "x")
     for i in lines:
@@ -94,7 +94,7 @@ def clash(mu, fname):
       after = i.split("\"]")[1]
       print(after)
       m = mid.split(",")
-      m.sort(key=takeSurge)
+      m.sort(key=takeSurge, reverse=False)
       init = False
       for n in m:
         if init == False:
