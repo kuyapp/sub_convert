@@ -34,7 +34,7 @@ def convert(mu, fname, take):
     a = txt.decode('utf-8')
     a.replace("\r\n", "\n")
     lines = a.split("\n")
-    lines.sort(key=take, reverse=False)
+    lines.sort(key=take, reverse=True)
     fname = "./dist/sdwsdw_"+fname+".conf"
     f = open(fname, "x")
     for i in lines:
@@ -94,7 +94,7 @@ def clash(mu, fname):
       after = i.split("\"]")[1]
       print(after)
       m = mid.split(",")
-      m.sort(key=takeSurge, reverse=False)
+      m.sort(key=takeSurge, reverse=True)
       init = False
       for n in m:
         if init == False:
