@@ -7,7 +7,7 @@ def takeSurge(elem):
     #print(elem)
     if "Auto" in elem:
       #print("k")
-      return "    "
+      return "沪港99"
     elem = elem.replace("香港", "沪港95")
     elem = elem.replace("新加坡", "沪港95港94")
     elem = elem.replace("日本", "沪港93")
