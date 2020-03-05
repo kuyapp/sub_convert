@@ -8,12 +8,12 @@ def takeSurge(elem):
     if "Auto" in elem:
       #print("k")
       return "    "
-    elem = elem.replace("香港", "5")
-    elem = elem.replace("新加坡", "4")
-    elem = elem.replace("日本", "3")
-    elem = elem.replace("台湾", "2")
-    elem = elem.replace("韩国", "1")
-    elem = elem.replace("美国", "0")
+    elem = elem.replace("香港", "京港95")
+    elem = elem.replace("新加坡", "京港94")
+    elem = elem.replace("日本", "京港93")
+    elem = elem.replace("台湾", "京港92")
+    elem = elem.replace("韩国", "京港91")
+    elem = elem.replace("美国", "京港90")
     #print(elem)
     return elem
 
