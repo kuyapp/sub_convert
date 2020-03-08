@@ -4,19 +4,17 @@ import urllib.request
 from pathlib import Path
 
 def takeSurge(elem):
-    #print(elem)
     if "Auto" in elem:
-      #print("k")
       return "0"
-    if "倍" in elem:
-      return "0"+elem
-    elem = elem.replace("香港", "1")
-    elem = elem.replace("新加坡", "2")
-    elem = elem.replace("日本", "3")
-    elem = elem.replace("台湾", "4")
-    elem = elem.replace("韩国", "5")
-    elem = elem.replace("美国", "6")
-    #print(elem)
+    elem = elem.replace("京港", "1")
+    elem = elem.replace("沪港", "2")
+    elem = elem.replace("沪台", "3")
+    elem = elem.replace("香港", "4")
+    elem = elem.replace("新加坡", "5")
+    elem = elem.replace("日本", "6")
+    elem = elem.replace("台湾", "7")
+    elem = elem.replace("韩国", "8")
+    elem = elem.replace("美国", "9")
     return elem
 
 def takeQX(elem):
@@ -90,13 +88,15 @@ def clash(mu, fname):
       before = i.split("[")[0]
       f.write(before)
       f.write("[")
-      print(i)
+      #print(i)
       mid = "\"" + i.split("[\"")[1].split("\"]")[0] + "\""
-      print(mid)
+      #print(mid)
       after = i.split("\"]")[1]
-      print(after)
+      #print(after)
       m = mid.split(",")
+      print(m)
       m.sort(key=takeSurge, reverse=False)
+      print(m)
       init = False
       for n in m:
         if init == False:
