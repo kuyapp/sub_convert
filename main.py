@@ -6,15 +6,15 @@ from pathlib import Path
 def takeSurge(elem):
     if "Auto" in elem:
       return "0"
-    elem = elem.replace("京港", "11")
-    elem = elem.replace("沪港", "12")
-    elem = elem.replace("沪台", "13")
-    elem = elem.replace("香港", "4")
-    elem = elem.replace("新加坡", "5")
-    elem = elem.replace("日本", "6")
-    elem = elem.replace("台湾", "7")
-    elem = elem.replace("韩国", "8")
-    elem = elem.replace("美国", "9")
+    elem = elem.replace("京港", "g")
+    elem = elem.replace("沪港", "h")
+    elem = elem.replace("沪台", "i")
+    elem = elem.replace("香港", "a")
+    elem = elem.replace("新加坡", "b")
+    elem = elem.replace("日本", "c")
+    elem = elem.replace("台湾", "d")
+    elem = elem.replace("韩国", "e")
+    elem = elem.replace("美国", "f")
     return elem
 
 def takeQX(elem):
