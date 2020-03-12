@@ -57,8 +57,8 @@ def convertEx(fname):
       if i.startswith("【") and "回国" not in i:
         if "Tunnel" in i:
           end_list.append(i)
-        else:
-          new_list.append(i)
+        #else:
+        #  new_list.append(i)
     fname = "./dist/sdwsdw_"+fname+".conf"
     f = open(fname, "x")
     for i in end_list:
