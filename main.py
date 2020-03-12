@@ -6,9 +6,9 @@ from pathlib import Path
 def takeSurge(elem):
     if "Auto" in elem:
       return "0"
-    elem = elem.replace("京港", "1")
-    elem = elem.replace("沪港", "2")
-    elem = elem.replace("沪台", "3")
+    elem = elem.replace("京港", "11")
+    elem = elem.replace("沪港", "12")
+    elem = elem.replace("沪台", "13")
     elem = elem.replace("香港", "4")
     elem = elem.replace("新加坡", "5")
     elem = elem.replace("日本", "6")
