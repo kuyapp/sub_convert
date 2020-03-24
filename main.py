@@ -40,8 +40,9 @@ def convert(mu, fname, take):
     fname = "./dist/sdwsdw_"+fname+".conf"
     f = open(fname, "x")
     for i in lines:
-      f.write(i)
-      f.write("\r\n")
+      if "到期时间" not in i and "剩余流量" not in i:
+        f.write(i)
+        f.write("\r\n")
       
 def convertEx(fname):
     base_url = os.environ['ME_URL']
