@@ -24,7 +24,24 @@ def takeQX(elem):
       return "0"
     elem = elem.split("tag=")[1]
     return takeSurge(elem)
-    
+
+def convert_o(mu, fname, take):
+    base_url = os.environ['O_SUB_URL']
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
+    myurl = base_url + mu;
+    print(myurl)
+    req = urllib.request.Request(url=myurl, headers=headers)
+    txt = urllib.request.urlopen(req).read()
+    a = txt.decode('utf-8')
+    a.replace("\r\n", "\n")
+    lines = a.split("\n")
+    lines.sort(key=take, reverse=False)
+    fname = "./dist/qq_"+fname+".conf"
+    f = open(fname, "x")
+    for i in lines:
+      if "到期时间" not in i and "剩余流量" not in i:
+        f.write(i)
+        f.write("\r\n")    
 
 def convert(mu, fname, take):
     base_url = os.environ['SUB_URL']
@@ -134,6 +151,7 @@ def neohost():
     
 Path("./dist").mkdir(parents=True, exist_ok=True)
 convert("6", "surge", takeSurge)
+
 convert("5", "qx", takeQX)
 clash("4", "clash")
 neohost()
@@ -143,3 +161,4 @@ convert("6&tls", "surge_tls", takeSurge)
 convert("5&tls", "qx_tls", takeQX)
 clash("4&tls", "clash_tls")
  
+convert_o("6", "surge", takeSurge)
