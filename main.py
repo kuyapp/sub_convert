@@ -75,7 +75,7 @@ def convertEx(fname):
     end_list = []
     for i in lines:
       if i.startswith("【") and "回国" not in i:
-        if "Tunnel" in i:
+        if "V4 |" in i:
           end_list.append(i)
         #else:
         #  new_list.append(i)
