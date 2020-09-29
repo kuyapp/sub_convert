@@ -60,7 +60,7 @@ def convert(mu, fname, take):
       if "到期时间" not in i and "剩余流量" not in i:
         f.write(i)
         f.write("\r\n")
-		
+        
 
       
 def convertEx(fname):
@@ -152,7 +152,7 @@ def neohost():
        f.write("\r\n")
 
 def fix():
-	base_url = os.environ['SUB_URL']
+    base_url = os.environ['SUB_URL']
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
     myurl = base_url + "?surge=4";
     print(myurl)
@@ -164,19 +164,19 @@ def fix():
     fname = "./dist/sdwsdw_0929.conf"
     f = open(fname, "x")
     for i in lines:
-	  if "CGq46cJj6vet42v0" in i:
-		f.write("#!MANAGED-CONFIG https://s.kuyapp.xyz/sdwsdw_0929.conf")
-		f.write("\r\n")
-		continue
-	  if "PROCESS-NAME" in i:
-	    continue
-	  if "URL-REGEX" in i:
-	    continue
-	  if i.startswith("#"):
-	    continue
-	f.write(i)
-	f.write("\r\n")
-	   
+      if "CGq46cJj6vet42v0" in i:
+        f.write("#!MANAGED-CONFIG https://s.kuyapp.xyz/sdwsdw_0929.conf")
+        f.write("\r\n")
+        continue
+      if "PROCESS-NAME" in i:
+        continue
+      if "URL-REGEX" in i:
+        continue
+      if i.startswith("#"):
+        continue
+    f.write(i)
+    f.write("\r\n")
+       
 Path("./dist").mkdir(parents=True, exist_ok=True)
 fix()
 
