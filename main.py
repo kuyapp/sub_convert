@@ -174,8 +174,8 @@ def fix():
         continue
       if i.startswith("#"):
         continue
-    f.write(i)
-    f.write("\r\n")
+      f.write(i)
+      f.write("\r\n")
        
 Path("./dist").mkdir(parents=True, exist_ok=True)
 fix()
