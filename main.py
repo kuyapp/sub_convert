@@ -174,6 +174,8 @@ def fix():
         continue
       if i.startswith("#"):
         continue
+      if len(i) = 0:
+        continue
       f.write(i)
       f.write("\r\n")
        
