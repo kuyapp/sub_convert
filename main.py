@@ -153,6 +153,7 @@ def neohost():
 
 def fix():
     base_url = os.environ['SUB_URL']
+    sec_url = os.environ['SEC_URL']
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
     myurl = base_url + "surge=4";
     print(myurl)
@@ -165,7 +166,7 @@ def fix():
     f = open(fname, "x")
     for i in lines:
       if "CGq46cJj6vet42v0" in i:
-        f.write("#!MANAGED-CONFIG https://s.kuyapp.xyz/sdwsdw_0929.conf")
+        f.write("#!MANAGED-CONFIG "+sec_url)
         f.write("\r\n")
         continue
       if "PROCESS-NAME" in i:
