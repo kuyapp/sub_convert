@@ -179,9 +179,32 @@ def fix():
         continue
       f.write(i)
       f.write("\r\n")
+        
+def fixnew():
+    base_url = os.environ['ME_URL']
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
+    myurl = base_url
+    print(myurl)
+    req = urllib.request.Request(url=myurl, headers=headers)
+    txt = urllib.request.urlopen(req).read()
+    a = txt.decode('utf-8')
+    a.replace("\r\n", "\n")
+    lines = a.split("\n")
+    fname = "./dist/sdwsdw_0109.list"
+    f = open(fname, "x")
+    inproxy = false
+    for i in lines:
+      if "proxies" in i:
+        inproxy = true
+      if "proxy-groups" in i:
+        break
+      if inproxy:
+        f.write(1)
+        f.write("\r\n")
+
        
 Path("./dist").mkdir(parents=True, exist_ok=True)
-fix()
+fixnew()
 
 #convert("6", "surge", takeSurge)
 #
