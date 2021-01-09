@@ -199,7 +199,7 @@ def fixnew():
       if "proxy-groups" in i:
         break
       if inproxy:
-        f.write(1)
+        f.write(i)
         f.write("\r\n")
 
        
