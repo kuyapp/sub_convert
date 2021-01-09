@@ -192,10 +192,10 @@ def fixnew():
     lines = a.split("\n")
     fname = "./dist/sdwsdw_0109.list"
     f = open(fname, "x")
-    inproxy = false
+    inproxy = False
     for i in lines:
       if "proxies" in i:
-        inproxy = true
+        inproxy = True
       if "proxy-groups" in i:
         break
       if inproxy:
