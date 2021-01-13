@@ -180,8 +180,8 @@ def fix():
       f.write(i)
       f.write("\r\n")
         
-def fixnew():
-    base_url = os.environ['ME_URL']
+def fixnew(base_url, fname):
+    #base_url = os.environ['ME_URL']
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
     myurl = base_url
     print(myurl)
@@ -190,21 +190,26 @@ def fixnew():
     a = txt.decode('utf-8')
     a.replace("\r\n", "\n")
     lines = a.split("\n")
-    fname = "./dist/sdwsdw_0109.list"
+    #fname = "./dist/sdwsdw_0109.list"
     f = open(fname, "x")
     inproxy = False
     for i in lines:
       if "proxies" in i:
         inproxy = True
+        f.write(i)
+        f.write("\r\n")
       if "proxy-groups" in i:
         break
-      if inproxy:
+      if inproxy and "香港" in i:
         f.write(i)
         f.write("\r\n")
 
        
 Path("./dist").mkdir(parents=True, exist_ok=True)
-fixnew()
+ssrsuburl="https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml"
+
+fixnew(os.environ['ME_URL'], "./dist/sdwsdw_0109.list")
+fixnew(ssrsuburl, "./dist/ssrsub.list"）
 
 #convert("6", "surge", takeSurge)
 #
