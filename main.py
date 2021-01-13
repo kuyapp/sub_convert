@@ -210,6 +210,7 @@ Path("./dist").mkdir(parents=True, exist_ok=True)
 ssrsuburl="https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml"
 
 fixnew(os.environ['ME_URL'], "./dist/sdwsdw_0109.list", "")
+fixnew(os.environ['ST_URL'], "./dist/st.list", "港")
 fixnew(ssrsuburl, "./dist/ssrsub.list", "香港")
 
 #convert("6", "surge", takeSurge)
