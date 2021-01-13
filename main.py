@@ -180,7 +180,7 @@ def fix():
       f.write(i)
       f.write("\r\n")
         
-def fixnew(base_url, fname):
+def fixnew(base_url, fname, key):
     #base_url = os.environ['ME_URL']
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
     myurl = base_url
@@ -200,7 +200,7 @@ def fixnew(base_url, fname):
         f.write("\r\n")
       if "proxy-groups" in i:
         break
-      if inproxy and "香港" in i:
+      if inproxy and key in i:
         f.write(i)
         f.write("\r\n")
 
@@ -208,8 +208,8 @@ def fixnew(base_url, fname):
 Path("./dist").mkdir(parents=True, exist_ok=True)
 ssrsuburl="https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml"
 
-fixnew(os.environ['ME_URL'], "./dist/sdwsdw_0109.list")
-fixnew(ssrsuburl, "./dist/ssrsub.list")
+fixnew(os.environ['ME_URL'], "./dist/sdwsdw_0109.list", "")
+fixnew(ssrsuburl, "./dist/ssrsub.list", "香港")
 
 #convert("6", "surge", takeSurge)
 #
