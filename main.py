@@ -192,12 +192,13 @@ def fixnew(base_url, fname, key):
     lines = a.split("\n")
     #fname = "./dist/sdwsdw_0109.list"
     f = open(fname, "x")
+    f.write("proxies:")
+    f.write("\r\n")
     inproxy = False
     for i in lines:
       if "proxies" in i:
         inproxy = True
-        f.write(i)
-        f.write("\r\n")
+        continue
       if "proxy-groups" in i:
         break
       if inproxy and key in i:
