@@ -182,7 +182,7 @@ def fix():
         
 def fixnew(base_url, fname, key):
     #base_url = os.environ['ME_URL']
-    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
+    headers = {'authority':'losadhwselfff2332dasd.xyz', 'upgrade-insecure-requests':'1', 'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75', 'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'sec-fetch-site':'none', 'sec-fetch-mode': 'navigate', 'sec-fetch-dest':'document', 'accept-language': 'zh-CN,zh;q=0.9', 'cookie':'__cfduid=de7b53bb4948fc9243db018e6ac07ecee1610602880'}
     myurl = base_url
     print(myurl)
     req = urllib.request.Request(url=myurl, headers=headers)
